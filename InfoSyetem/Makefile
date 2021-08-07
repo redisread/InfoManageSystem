@@ -210,6 +210,7 @@ Makefile: InfoSyetem.pro E:/qt-5.12/5.12.0/mingw73_64/mkspecs/win32-g++/qmake.co
 		E:/qt-5.12/5.12.0/mingw73_64/mkspecs/features/qt_config.prf \
 		E:/qt-5.12/5.12.0/mingw73_64/mkspecs/win32-g++/qmake.conf \
 		E:/qt-5.12/5.12.0/mingw73_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		E:/qt-5.12/5.12.0/mingw73_64/mkspecs/features/exclusive_builds.prf \
 		E:/qt-5.12/5.12.0/mingw73_64/mkspecs/features/toolchain.prf \
 		E:/qt-5.12/5.12.0/mingw73_64/mkspecs/features/default_pre.prf \
@@ -387,6 +388,7 @@ E:/qt-5.12/5.12.0/mingw73_64/mkspecs/features/qt_functions.prf:
 E:/qt-5.12/5.12.0/mingw73_64/mkspecs/features/qt_config.prf:
 E:/qt-5.12/5.12.0/mingw73_64/mkspecs/win32-g++/qmake.conf:
 E:/qt-5.12/5.12.0/mingw73_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 E:/qt-5.12/5.12.0/mingw73_64/mkspecs/features/exclusive_builds.prf:
 E:/qt-5.12/5.12.0/mingw73_64/mkspecs/features/toolchain.prf:
 E:/qt-5.12/5.12.0/mingw73_64/mkspecs/features/default_pre.prf:
