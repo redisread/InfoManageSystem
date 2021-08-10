@@ -236,6 +236,7 @@ Makefile: InfoSyetem.pro E:/qt-5.12/5.12.0/mingw73_64/mkspecs/win32-g++/qmake.co
 		InfoSyetem.pro \
 		E:/qt-5.12/5.12.0/mingw73_64/lib/Qt5Widgets.prl \
 		E:/qt-5.12/5.12.0/mingw73_64/lib/Qt5Gui.prl \
+		E:/qt-5.12/5.12.0/mingw73_64/lib/Qt5Sql.prl \
 		E:/qt-5.12/5.12.0/mingw73_64/lib/Qt5Core.prl \
 		E:/qt-5.12/5.12.0/mingw73_64/lib/qtmaind.prl
 	$(QMAKE) -o Makefile InfoSyetem.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
@@ -414,6 +415,7 @@ E:/qt-5.12/5.12.0/mingw73_64/mkspecs/features/lex.prf:
 InfoSyetem.pro:
 E:/qt-5.12/5.12.0/mingw73_64/lib/Qt5Widgets.prl:
 E:/qt-5.12/5.12.0/mingw73_64/lib/Qt5Gui.prl:
+E:/qt-5.12/5.12.0/mingw73_64/lib/Qt5Sql.prl:
 E:/qt-5.12/5.12.0/mingw73_64/lib/Qt5Core.prl:
 E:/qt-5.12/5.12.0/mingw73_64/lib/qtmaind.prl:
 qmake: FORCE
