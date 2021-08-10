@@ -28,12 +28,16 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     navbutton.cpp \
-    iconhelper.cpp
+    iconhelper.cpp \
+    Model/Student.cpp \
+    Model/Teacher.cpp
 
 HEADERS += \
         mainwindow.h \
     iconhelper.h \
-    navbutton.h
+    navbutton.h \
+    Model/Student.h \
+    Model/Teacher.h
 
 FORMS += \
         mainwindow.ui
