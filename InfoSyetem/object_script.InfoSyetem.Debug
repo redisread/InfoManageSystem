@@ -1,0 +1,11 @@
+debug/main.o
+debug/mainwindow.o
+debug/navbutton.o
+debug/iconhelper.o
+debug/Student.o
+debug/Teacher.o
+debug/SqliteHelper.o
+debug/SqliteHelper.o
+debug/moc_mainwindow.o
+debug/moc_iconhelper.o
+debug/moc_navbutton.o

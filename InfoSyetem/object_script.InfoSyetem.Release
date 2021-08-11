@@ -1,0 +1,11 @@
+release/main.o
+release/mainwindow.o
+release/navbutton.o
+release/iconhelper.o
+release/Student.o
+release/Teacher.o
+release/SqliteHelper.o
+release/SqliteHelper.o
+release/moc_mainwindow.o
+release/moc_iconhelper.o
+release/moc_navbutton.o

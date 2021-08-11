@@ -30,14 +30,17 @@ SOURCES += \
     navbutton.cpp \
     iconhelper.cpp \
     Model/Student.cpp \
-    Model/Teacher.cpp
+    Model/Teacher.cpp \
+    SqliteUtils/SqliteHelper.cpp \
+    SqliteUtils/SqliteHelper.cpp
 
 HEADERS += \
         mainwindow.h \
     iconhelper.h \
     navbutton.h \
     Model/Student.h \
-    Model/Teacher.h
+    Model/Teacher.h \
+    SqliteUtils/SqliteHelper.h
 
 FORMS += \
         mainwindow.ui
