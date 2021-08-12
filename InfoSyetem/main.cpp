@@ -10,12 +10,12 @@ void testSqlite();
 
 int main(int argc, char *argv[])
 {
-//    QApplication a(argc, argv);
-//    MainWindow *window = new MainWindow();
-//    window->show();
+    //    QApplication a(argc, argv);
+    //    MainWindow *window = new MainWindow();
+    //    window->show();
     // 测试Sqlite数据库
     testSqlite();
-//    return a.exec();
+    //    return a.exec();
     return 0;
 }
 
@@ -24,6 +24,11 @@ void testSqlite() {
     SqliteHelper sqliteHelper;
     bool res = sqliteHelper.openDatabase(databaseName);
     if(res){
+        bool rr = sqliteHelper.containUser(User("9125","123456"));
+        if(rr) {
+            qDebug() << "OK" << endl;
+        }
+
         sqliteHelper.closeDatabase();
         qDebug() << "finish" << endl;
     }

@@ -40,7 +40,8 @@ HEADERS += \
     navbutton.h \
     Model/Student.h \
     Model/Teacher.h \
-    SqliteUtils/SqliteHelper.h
+    SqliteUtils/SqliteHelper.h \
+    Model/User.h
 
 FORMS += \
         mainwindow.ui
