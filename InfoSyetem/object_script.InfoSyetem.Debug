@@ -4,8 +4,11 @@ debug/navbutton.o
 debug/iconhelper.o
 debug/Student.o
 debug/Teacher.o
+debug/User.o
+debug/MysqlHelper.o
 debug/SqliteHelper.o
-debug/SqliteHelper.o
+debug/loginwidget.o
 debug/moc_mainwindow.o
 debug/moc_iconhelper.o
 debug/moc_navbutton.o
+debug/moc_loginwidget.o

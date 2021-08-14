@@ -31,8 +31,10 @@ SOURCES += \
     iconhelper.cpp \
     Model/Student.cpp \
     Model/Teacher.cpp \
-    SqliteUtils/SqliteHelper.cpp \
-    SqliteUtils/SqliteHelper.cpp
+    Model/User.cpp \
+    DatabaseUtils/MysqlHelper.cpp \
+    DatabaseUtils/SqliteHelper.cpp \
+    Login/loginwidget.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -40,11 +42,15 @@ HEADERS += \
     navbutton.h \
     Model/Student.h \
     Model/Teacher.h \
-    SqliteUtils/SqliteHelper.h \
-    Model/User.h
+    Model/User.h \
+    Config/DatabaseConfig.h \
+    DatabaseUtils/MysqlHelper.h \
+    DatabaseUtils/SqliteHelper.h \
+    Login/loginwidget.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    Login/loginwidget.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

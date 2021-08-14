@@ -4,8 +4,11 @@ release/navbutton.o
 release/iconhelper.o
 release/Student.o
 release/Teacher.o
+release/User.o
+release/MysqlHelper.o
 release/SqliteHelper.o
-release/SqliteHelper.o
+release/loginwidget.o
 release/moc_mainwindow.o
 release/moc_iconhelper.o
 release/moc_navbutton.o
+release/moc_loginwidget.o

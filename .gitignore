@@ -1,7 +1,0 @@
-*.exe
-*.o
-*.a
-makefile*
-./InfoSyetem/debug/*
-debug
-release
