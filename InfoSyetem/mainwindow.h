@@ -4,6 +4,9 @@
 #include <QMainWindow>
 #include <QWidget>
 
+#include "Login/loginwidget.h"
+
+
 class NavButton;
 
 namespace Ui {
@@ -23,6 +26,7 @@ private slots:
     void buttonClick();
 private:
     Ui::MainWindow *ui;
+    LoginWidget *loginWidget;
     QList<NavButton *> btns;
 };
 

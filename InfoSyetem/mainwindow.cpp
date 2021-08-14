@@ -11,6 +11,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->menuBar->setNativeMenuBar(false);
 
     this->initForm();
+    loginWidget = new LoginWidget();
+    loginWidget->show();
+    connect(loginWidget,SIGNAL(login()),this,SLOT(show()));
 }
 
 MainWindow::~MainWindow()
