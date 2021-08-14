@@ -27,7 +27,6 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    navbutton.cpp \
     iconhelper.cpp \
     Model/Student.cpp \
     Model/Teacher.cpp \
@@ -39,7 +38,6 @@ SOURCES += \
 HEADERS += \
         mainwindow.h \
     iconhelper.h \
-    navbutton.h \
     Model/Student.h \
     Model/Teacher.h \
     Model/User.h \

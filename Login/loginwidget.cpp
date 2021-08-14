@@ -15,6 +15,10 @@ LoginWidget::LoginWidget(QWidget *parent) :
 
     // 设置密码输入不可见
     ui->password_lineEdit->setEchoMode(QLineEdit::Password);
+
+    // 调试用
+    ui->userName_lineEdit->setText("915");
+    ui->password_lineEdit->setText("123456");
     this->setWindowTitle("登录界面");
 
 }

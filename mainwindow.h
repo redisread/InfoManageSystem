@@ -21,13 +21,10 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-private slots:
-    void initForm();
-    void buttonClick();
 private:
     Ui::MainWindow *ui;
     LoginWidget *loginWidget;
-    QList<NavButton *> btns;
+//    QList<NavButton *> btns;
 };
 
 #endif // MAINWINDOW_H
