@@ -20,11 +20,15 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+public slots:
+    void setTitle();
 
 private:
     Ui::MainWindow *ui;
     LoginWidget *loginWidget;
-//    QList<NavButton *> btns;
+
+    QString userName;
+    //    QList<NavButton *> btns;
 };
 
 #endif // MAINWINDOW_H

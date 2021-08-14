@@ -13,7 +13,32 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>170</y>
+      <width>391</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>幼圆</family>
+      <pointsize>24</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+      <underline>false</underline>
+      <strikeout>false</strikeout>
+     </font>
+    </property>
+    <property name="text">
+     <string>信息管理系统(Test)</string>
+    </property>
+   </widget>
+  </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
@@ -28,24 +53,33 @@
      <pointsize>11</pointsize>
     </font>
    </property>
-   <widget class="QMenu" name="menuruanjian">
+   <widget class="QMenu" name="menu_student_manage">
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
     <property name="title">
      <string>学籍管理</string>
     </property>
-    <addaction name="actionxuejiu"/>
-    <addaction name="actionzaijitongji"/>
-    <addaction name="actionbanzhurendaibang"/>
-    <addaction name="actionsdf"/>
-    <addaction name="actionda"/>
+    <addaction name="action_student_info_process"/>
+    <addaction name="action_menbership_process"/>
+    <addaction name="action_teacher_student_count"/>
+    <addaction name="action_payer_count"/>
+    <addaction name="action_student_info_change_query"/>
+    <addaction name="action_grade_import"/>
+    <addaction name="action_grade_count"/>
+    <addaction name="action_grade_tables"/>
    </widget>
-   <widget class="QMenu" name="menudsasdsa">
+   <widget class="QMenu" name="menu_teach_manage">
     <property name="title">
-     <string>成绩管理</string>
+     <string>教学管理</string>
     </property>
-    <addaction name="actionchji"/>
-    <addaction name="actiond"/>
-    <addaction name="actiond_2"/>
-    <addaction name="actiond_3"/>
+    <addaction name="action_teacher_info"/>
+    <addaction name="action_class_manage"/>
+    <addaction name="action_class_pkg_manage"/>
+    <addaction name="actiond_curriculum_manage"/>
+    <addaction name="action_curriculum_query"/>
    </widget>
    <widget class="QMenu" name="menu">
     <property name="title">
@@ -73,10 +107,32 @@
      <string>招生管理</string>
     </property>
    </widget>
-   <widget class="QMenu" name="menu_4">
+   <widget class="QMenu" name="menu_book_manage">
     <property name="title">
      <string>教材管理</string>
     </property>
+    <widget class="QMenu" name="menu_4">
+     <property name="title">
+      <string>教材发放</string>
+     </property>
+     <addaction name="action1"/>
+     <addaction name="action2"/>
+     <addaction name="action3"/>
+     <addaction name="action4"/>
+    </widget>
+    <widget class="QMenu" name="menu_8">
+     <property name="title">
+      <string>教材采购</string>
+     </property>
+     <addaction name="action1_2"/>
+     <addaction name="action2_2"/>
+    </widget>
+    <addaction name="menu_4"/>
+    <addaction name="menu_8"/>
+    <addaction name="action_inventory_manage"/>
+    <addaction name="action_book_sell"/>
+    <addaction name="action_book_info"/>
+    <addaction name="action_express_fee_manage"/>
    </widget>
    <widget class="QMenu" name="menu_5">
     <property name="title">
@@ -93,12 +149,12 @@
      <string>关于</string>
     </property>
    </widget>
-   <addaction name="menuruanjian"/>
-   <addaction name="menudsasdsa"/>
+   <addaction name="menu_student_manage"/>
+   <addaction name="menu_teach_manage"/>
+   <addaction name="menu_book_manage"/>
    <addaction name="menu"/>
    <addaction name="menu_2"/>
    <addaction name="menu_3"/>
-   <addaction name="menu_4"/>
    <addaction name="menu_5"/>
    <addaction name="menu_6"/>
    <addaction name="menu_7"/>
@@ -112,49 +168,57 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <action name="actionxuejiu">
+  <action name="action_student_info_process">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>学籍处理</string>
    </property>
-  </action>
-  <action name="actionzaijitongji">
-   <property name="text">
-    <string>在籍统计</string>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
    </property>
   </action>
-  <action name="actionbanzhurendaibang">
+  <action name="action_menbership_process">
+   <property name="text">
+    <string>在籍处理</string>
+   </property>
+  </action>
+  <action name="action_teacher_student_count">
    <property name="text">
     <string>班主任带班统计</string>
    </property>
   </action>
-  <action name="actionsdf">
+  <action name="action_payer_count">
    <property name="text">
     <string>统计缴费人数</string>
    </property>
   </action>
-  <action name="actionda">
+  <action name="action_student_info_change_query">
    <property name="text">
     <string>学籍变更查询</string>
    </property>
   </action>
-  <action name="actionchji">
+  <action name="action_teacher_info">
    <property name="text">
-    <string>成绩录入</string>
+    <string>教师基本信息</string>
    </property>
   </action>
-  <action name="actiond">
+  <action name="action_class_manage">
    <property name="text">
-    <string>成绩导入</string>
+    <string>教室管理</string>
    </property>
   </action>
-  <action name="actiond_2">
+  <action name="action_class_pkg_manage">
    <property name="text">
-    <string>成绩统计</string>
+    <string>班级包管理</string>
    </property>
   </action>
-  <action name="actiond_3">
+  <action name="actiond_curriculum_manage">
    <property name="text">
-    <string>成绩总表</string>
+    <string>课表管理</string>
    </property>
   </action>
   <action name="actiona">
@@ -210,6 +274,76 @@
   <action name="actionad">
    <property name="text">
     <string>回访批次管理</string>
+   </property>
+  </action>
+  <action name="action_grade_import">
+   <property name="text">
+    <string>成绩导入</string>
+   </property>
+  </action>
+  <action name="action_grade_count">
+   <property name="text">
+    <string>成绩统计</string>
+   </property>
+  </action>
+  <action name="action_grade_tables">
+   <property name="text">
+    <string>成绩总表</string>
+   </property>
+  </action>
+  <action name="action_curriculum_query">
+   <property name="text">
+    <string>课表查询</string>
+   </property>
+  </action>
+  <action name="action_inventory_manage">
+   <property name="text">
+    <string>库存管理</string>
+   </property>
+  </action>
+  <action name="action_book_sell">
+   <property name="text">
+    <string>教材销售</string>
+   </property>
+  </action>
+  <action name="action_book_info">
+   <property name="text">
+    <string>基本资料</string>
+   </property>
+  </action>
+  <action name="action_express_fee_manage">
+   <property name="text">
+    <string>教材快递费管理</string>
+   </property>
+  </action>
+  <action name="action1">
+   <property name="text">
+    <string>教材发放</string>
+   </property>
+  </action>
+  <action name="action2">
+   <property name="text">
+    <string>批量教材发放</string>
+   </property>
+  </action>
+  <action name="action3">
+   <property name="text">
+    <string>记录查询</string>
+   </property>
+  </action>
+  <action name="action4">
+   <property name="text">
+    <string>教材结算</string>
+   </property>
+  </action>
+  <action name="action1_2">
+   <property name="text">
+    <string>1</string>
+   </property>
+  </action>
+  <action name="action2_2">
+   <property name="text">
+    <string>2</string>
    </property>
   </action>
  </widget>

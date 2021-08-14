@@ -28,10 +28,16 @@ LoginWidget::~LoginWidget()
     delete ui;
 }
 
+
+QString LoginWidget::getUserName(){
+    return this->userName;
+}
+
 void LoginWidget::pushbutton_login_clicked()
 {
     QString userName = ui->userName_lineEdit->text();
     QString password = ui->password_lineEdit->text();
+    this->userName = userName;
 
     // 连接数据库
     MysqlHelper mysqlHelper(DatabaseConfig::HOST_NAME,DatabaseConfig::PORT,
@@ -46,6 +52,7 @@ void LoginWidget::pushbutton_login_clicked()
     if(isContainUser) {
         // 发出登录信号
         emit(login());
+        emit(set_title());
         // 发出关闭窗口信号
         emit(close_window());
         mysqlHelper.closeDatabase();

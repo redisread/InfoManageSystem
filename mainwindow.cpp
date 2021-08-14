@@ -9,16 +9,22 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->menuBar->setNativeMenuBar(false);
 
-//    this->initForm();
+    //    this->initForm();
     // 设置标题
     this->setWindowTitle("信息管理系统");
     loginWidget = new LoginWidget();
     loginWidget->show();
     connect(loginWidget,SIGNAL(login()),this,SLOT(show()));
+    connect(loginWidget,SIGNAL(set_title()),this,SLOT(setTitle()));
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::setTitle()
+{
+    this->setWindowTitle(loginWidget->getUserName());
 }
 
