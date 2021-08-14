@@ -1,5 +1,5 @@
 #include "DatabaseUtils/mysqlhelper.h"
-
+#include "Config/DatabaseConfig.h"
 MysqlHelper::MysqlHelper(QString hostName, int port, QString userName, QString password)
 {
     this->database = QSqlDatabase::addDatabase("QMYSQL");
@@ -30,7 +30,7 @@ void MysqlHelper::closeDatabase() {
 
 bool MysqlHelper::containUser(User user) {
     QSqlQuery sqlQuery;
-    QString queryCommand = QString("SELECT account,password FROM User WHERE account = %1 AND password = %2").arg(user.getAccount()).arg(user.getPassword());
+    QString queryCommand = QString("SELECT account,password FROM %1 WHERE account = %2 AND password = %3").arg(DatabaseConfig::USER_TABLE_NAME).arg(user.getAccount()).arg(user.getPassword());
     sqlQuery.exec(queryCommand);
     if(!sqlQuery.exec())
     {

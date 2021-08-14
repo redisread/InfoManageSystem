@@ -5,12 +5,12 @@
 
 
 namespace DatabaseConfig {
-    static const QString HOST_NAME = "496e43891749bbb1.c.cloudtogo.cn";
-    static const int PORT = 35236;
+    static const QString HOST_NAME = "127.0.0.1";
+    static const int PORT = 3306;
     static const QString USER_NAME = "root";
-    static const QString PASSWORD = "123456";
+    static const QString PASSWORD = "WJHwjh19981022";
     static const QString DATABASE_NAME ="InfoSystem";
-    static const QString USER_TABLE_NAME = "User";
+    static const QString USER_TABLE_NAME = "account_info";
 }
 
 
