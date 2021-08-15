@@ -9,6 +9,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->menuBar->setNativeMenuBar(false);
 
+    this->studentManageItemPt = new StudentManageItem();
+    this->studentManageItemPt->studentBasicInfo = new StudentBasicInfo();
+    this->studentManageItemPt->studentBasicInfo->show();
+    QList<QAction*> qActions = this->ui->menu_student_manage->actions();
+
     //    this->initForm();
     // 设置标题
     this->setWindowTitle("信息管理系统");

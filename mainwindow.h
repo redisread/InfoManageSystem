@@ -5,6 +5,7 @@
 #include <QWidget>
 
 #include "Login/loginwidget.h"
+#include "StudentManage/StudentManageItem.h"
 
 
 class NavButton;
@@ -12,6 +13,8 @@ class NavButton;
 namespace Ui {
 class MainWindow;
 }
+
+
 
 class MainWindow : public QMainWindow
 {
@@ -26,6 +29,10 @@ public slots:
 private:
     Ui::MainWindow *ui;
     LoginWidget *loginWidget;
+
+    // 学籍管理模块界面
+    StudentManageItem *studentManageItemPt;
+
 
     QString userName;
     //    QList<NavButton *> btns;
