@@ -39,26 +39,28 @@ void LoginWidget::pushbutton_login_clicked()
     QString password = ui->password_lineEdit->text();
     this->userName = userName;
 
-    // 连接数据库
-    MysqlHelper mysqlHelper(DatabaseConfig::HOST_NAME,DatabaseConfig::PORT,
-                            DatabaseConfig::USER_NAME,DatabaseConfig::PASSWORD);
-    bool ok = mysqlHelper.openDatabase(DatabaseConfig::DATABASE_NAME);
+    // 获取数据库帮助类
+    MysqlHelper &mysqlHelperPt = MysqlHelper::getMysqlHelper();
+
+    bool ok = mysqlHelperPt.openDatabase();
     if(!ok) {
         qWarning() << "数据库打开失败" << endl;
-        QMessageBox::warning(this, "错误", mysqlHelper.getDatabase()->lastError().text());
+        QMessageBox::warning(this, "错误", mysqlHelperPt.getDatabase().lastError().text());
     }
-
-    bool isContainUser = mysqlHelper.containUser(User(userName,password));
+    mysqlHelperPt.setDatabaseName(DatabaseConfig::DATABASE_NAME);
+    mysqlHelperPt.openDatabase();
+    bool isContainUser = mysqlHelperPt.containUser(User(userName,password));
     if(isContainUser) {
         // 发出登录信号
         emit(login());
         emit(set_title());
         // 发出关闭窗口信号
         emit(close_window());
-        mysqlHelper.closeDatabase();
+
     }
     else {
         QMessageBox::information(this, "Warning","Username or Password is wrong !");
     }
+    mysqlHelperPt.closeDatabase();
 
 }

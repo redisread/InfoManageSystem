@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1094</width>
-    <height>598</height>
+    <width>1261</width>
+    <height>797</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,9 +16,9 @@
   <widget class="QWidget" name="horizontalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>20</y>
-     <width>1031</width>
+     <x>170</x>
+     <y>23</y>
+     <width>1051</width>
      <height>191</height>
     </rect>
    </property>
@@ -135,7 +135,7 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QComboBox" name="comboBox_44">
+       <widget class="QComboBox" name="comboBox_campus">
         <property name="minimumSize">
          <size>
           <width>10</width>
@@ -151,7 +151,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QComboBox" name="comboBox_52">
+       <widget class="QComboBox" name="comboBox_first_semester">
         <property name="minimumSize">
          <size>
           <width>10</width>
@@ -167,7 +167,7 @@
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QComboBox" name="comboBox_45">
+       <widget class="QComboBox" name="comboBox_status">
         <property name="minimumSize">
          <size>
           <width>10</width>
@@ -281,7 +281,7 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QComboBox" name="comboBox_46">
+       <widget class="QComboBox" name="comboBox_education_type">
         <property name="minimumSize">
          <size>
           <width>10</width>
@@ -297,7 +297,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QComboBox" name="comboBox_47">
+       <widget class="QComboBox" name="comboBox_head_teacher">
         <property name="minimumSize">
          <size>
           <width>10</width>
@@ -313,7 +313,7 @@
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QComboBox" name="comboBox_48">
+       <widget class="QComboBox" name="comboBox_applicant">
         <property name="minimumSize">
          <size>
           <width>10</width>
@@ -329,7 +329,7 @@
        </widget>
       </item>
       <item row="3" column="1">
-       <widget class="QComboBox" name="comboBox_49">
+       <widget class="QComboBox" name="comboBox_level">
         <property name="minimumSize">
          <size>
           <width>10</width>
@@ -443,7 +443,7 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QComboBox" name="comboBox_53">
+       <widget class="QComboBox" name="comboBox_teach_place">
         <property name="minimumSize">
          <size>
           <width>10</width>
@@ -459,7 +459,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QComboBox" name="comboBox_56">
+       <widget class="QComboBox" name="comboBox_campany">
         <property name="minimumSize">
          <size>
           <width>10</width>
@@ -475,7 +475,7 @@
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QComboBox" name="comboBox_55">
+       <widget class="QComboBox" name="comboBox_semester">
         <property name="minimumSize">
          <size>
           <width>10</width>
@@ -491,7 +491,7 @@
        </widget>
       </item>
       <item row="3" column="1">
-       <widget class="QComboBox" name="comboBox_54">
+       <widget class="QComboBox" name="comboBox_advance_process">
         <property name="minimumSize">
          <size>
           <width>10</width>
@@ -529,7 +529,7 @@
        <number>10</number>
       </property>
       <item row="0" column="1">
-       <widget class="QComboBox" name="comboBox_36">
+       <widget class="QComboBox" name="comboBox_school">
         <property name="minimumSize">
          <size>
           <width>178</width>
@@ -539,7 +539,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QComboBox" name="comboBox_50">
+       <widget class="QComboBox" name="comboBox_majoy">
         <property name="minimumSize">
          <size>
           <width>178</width>
@@ -549,7 +549,7 @@
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QComboBox" name="comboBox_51">
+       <widget class="QComboBox" name="comboBox_kclass">
         <property name="minimumSize">
          <size>
           <width>178</width>
@@ -641,24 +641,24 @@
   <widget class="QTableView" name="tableView">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>250</y>
-     <width>871</width>
-     <height>301</height>
+     <x>180</x>
+     <y>240</y>
+     <width>1051</width>
+     <height>521</height>
     </rect>
    </property>
   </widget>
-  <widget class="QScrollBar" name="horizontalScrollBar">
+  <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>470</x>
-     <y>630</y>
-     <width>160</width>
-     <height>16</height>
+     <x>20</x>
+     <y>580</y>
+     <width>93</width>
+     <height>28</height>
     </rect>
    </property>
-   <property name="orientation">
-    <enum>Qt::Horizontal</enum>
+   <property name="text">
+    <string>查询</string>
    </property>
   </widget>
  </widget>

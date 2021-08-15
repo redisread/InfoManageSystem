@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QMessageBox>
 //#include "iconhelper.h"
 #include "qdebug.h"
 MainWindow::MainWindow(QWidget *parent) :
@@ -10,9 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->menuBar->setNativeMenuBar(false);
 
     this->studentManageItemPt = new StudentManageItem();
-    this->studentManageItemPt->studentBasicInfo = new StudentBasicInfo();
-    this->studentManageItemPt->studentBasicInfo->show();
-    QList<QAction*> qActions = this->ui->menu_student_manage->actions();
+//    this->studentManageItemPt->studentBasicInfo = new StudentBasicInfo();
 
     //    this->initForm();
     // 设置标题
@@ -33,3 +32,18 @@ void MainWindow::setTitle()
     this->setWindowTitle(loginWidget->getUserName());
 }
 
+
+/*************************学籍管理Action函数**********************/
+
+/**
+ * 打开学籍处理页面
+ */
+void MainWindow::on_action_student_info_process_triggered()
+{
+    if(this->studentManageItemPt->studentBasicInfo == nullptr) {
+        this->studentManageItemPt->studentBasicInfo = new StudentBasicInfo();
+        qDebug() << "init" << endl;
+    }
+    this->studentManageItemPt->studentBasicInfo->show();
+//    QMessageBox::information(this, "Warning","Username or Password is wrong !");
+}

@@ -26,6 +26,9 @@ public:
 public slots:
     void setTitle();
 
+private slots:
+    void on_action_student_info_process_triggered();
+
 private:
     Ui::MainWindow *ui;
     LoginWidget *loginWidget;
