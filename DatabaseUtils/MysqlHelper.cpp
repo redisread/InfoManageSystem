@@ -1,5 +1,15 @@
 #include "DatabaseUtils/mysqlhelper.h"
-#include "Config/DatabaseConfig.h"
+
+MysqlHelper::MysqlHelper()
+{
+
+}
+
+MysqlHelper::~MysqlHelper()
+{
+
+}
+
 MysqlHelper::MysqlHelper(QString hostName, int port, QString userName, QString password)
 {
     this->database = QSqlDatabase::addDatabase("QMYSQL");
@@ -9,13 +19,19 @@ MysqlHelper::MysqlHelper(QString hostName, int port, QString userName, QString p
     this->database.setPassword(password);
 }
 
-QSqlDatabase *MysqlHelper::getDatabase()
+MysqlHelper& MysqlHelper::getMysqlHelper()
 {
-    return &this->database;
+    static MysqlHelper mysqlHelper(DatabaseConfig::HOST_NAME,DatabaseConfig::PORT,
+                       DatabaseConfig::USER_NAME,DatabaseConfig::PASSWORD);
+    return mysqlHelper;
 }
 
-bool MysqlHelper::openDatabase(QString databaseName){
-    database.setDatabaseName(databaseName);
+QSqlDatabase &MysqlHelper::getDatabase()
+{
+    return database;
+}
+
+bool MysqlHelper::openDatabase(){
     if (!database.open())
     {
         qDebug() << "Error: Failed to connect database." << database.lastError() << endl;
@@ -26,6 +42,11 @@ bool MysqlHelper::openDatabase(QString databaseName){
 
 void MysqlHelper::closeDatabase() {
     database.close();
+}
+
+void MysqlHelper::setDatabaseName(QString databaseName)
+{
+    this->database.setDatabaseName(databaseName);
 }
 
 bool MysqlHelper::containUser(User user) {
