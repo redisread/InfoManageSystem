@@ -1,11 +1,12 @@
-#include "StudentBasicInfo.h"
+#include "StudentBasicInfoPage.h"
 #include "ui_StudentBasicInfo.h"
 #include "DatabaseUtils/MysqlHelper.h"
 #include <QStandardItemModel>
 #include <QSqlTableModel>
 #include <QSqlRelationalTableModel>
+#include <QMenu>
 
-StudentBasicInfo::StudentBasicInfo(QWidget *parent) :
+StudentBasicInfoPage::StudentBasicInfoPage(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::StudentBasicInfo)
 {
@@ -15,7 +16,7 @@ StudentBasicInfo::StudentBasicInfo(QWidget *parent) :
 //    ui->tableView
 }
 
-StudentBasicInfo::~StudentBasicInfo()
+StudentBasicInfoPage::~StudentBasicInfoPage()
 {
     delete ui;
 }
@@ -24,7 +25,7 @@ StudentBasicInfo::~StudentBasicInfo()
  * @brief StudentBasicInfo::initSearchInfo
  * 初始化映射表
  */
-void StudentBasicInfo::initSearchInfo()
+void StudentBasicInfoPage::initSearchInfo()
 {
     searchInfo.insert("campus_id","*");
     searchInfo.insert("education_type","*");
@@ -42,7 +43,7 @@ void StudentBasicInfo::initSearchInfo()
     searchInfo.insert("advance_process","*");
 }
 
-void StudentBasicInfo::generateData()
+void StudentBasicInfoPage::generateData()
 {
     MysqlHelper& mysqlHelper = MysqlHelper::getMysqlHelper();
     mysqlHelper.openDatabase();
@@ -57,7 +58,7 @@ void StudentBasicInfo::generateData()
     //    mysqlHelperPt->openDatabase(DatabaseConfig::)
 }
 
-void StudentBasicInfo::generateTableView()
+void StudentBasicInfoPage::generateTableView()
 {
     ui->tableView->setSortingEnabled(true);
 
@@ -99,10 +100,25 @@ void StudentBasicInfo::generateTableView()
 //    //不显示name属性列,如果这时添加记录，则该属性的值添加不上
 //    // model->removeColumn(1);
 //    ui->tableView->setModel(model);
+    // 设置右键菜单
+    ui->tableView->setContextMenuPolicy(Qt::CustomContextMenu);
+
+
+    popMenu = new QMenu(ui->tableView);
+    QAction *actionUpdateInfo = new QAction();
+    QAction *actionDelInfo = new QAction();
+    actionUpdateInfo->setText(QString("修改"));
+    actionDelInfo->setText(QString("删除"));
+    popMenu->addAction(actionUpdateInfo);
+    popMenu->addAction(actionDelInfo);
+    connect(actionUpdateInfo, SIGNAL(triggered()), this, SLOT(rightClickPage()));
+    connect(ui->tableView, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu(QPoint)));
+
+
 
 }
 
-void StudentBasicInfo::getData()
+void StudentBasicInfoPage::getData()
 {
     // 分校
     const QString CAMPUS = "campus_name";
@@ -202,7 +218,7 @@ void StudentBasicInfo::getData()
     query.finish();
 }
 
-void StudentBasicInfo::setOneData(QSqlQuery &query, QList<QString> &tList, const QString &name, const QString &tableQuery)
+void StudentBasicInfoPage::setOneData(QSqlQuery &query, QList<QString> &tList, const QString &name, const QString &tableQuery)
 {
     query.exec(tableQuery);
     if(query.size() > 0)
@@ -215,12 +231,27 @@ void StudentBasicInfo::setOneData(QSqlQuery &query, QList<QString> &tList, const
 
 }
 
-void StudentBasicInfo::fillOneData(QComboBox *combobox, QList<QString> &tList)
+void StudentBasicInfoPage::fillOneData(QComboBox *combobox, QList<QString> &tList)
 {
     combobox->addItem("全部");
     for(QString value:tList) {
         combobox->addItem(value);
     }
+}
+
+void StudentBasicInfoPage::slotContextMenu(QPoint pos)
+{
+    auto index = ui->tableView->indexAt(pos);
+     if (index.isValid())
+     {
+         popMenu->exec(QCursor::pos()); // 菜单出现的位置为当前鼠标的位置
+     }
+}
+
+void StudentBasicInfoPage::rightClickPage()
+{
+    QMessageBox::information(this, "Warning","Username or Password is wrong !");
+
 }
 
 

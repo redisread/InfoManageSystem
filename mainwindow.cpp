@@ -41,9 +41,17 @@ void MainWindow::setTitle()
 void MainWindow::on_action_student_info_process_triggered()
 {
     if(this->studentManageItemPt->studentBasicInfo == nullptr) {
-        this->studentManageItemPt->studentBasicInfo = new StudentBasicInfo();
+        this->studentManageItemPt->studentBasicInfo = new StudentBasicInfoPage();
         qDebug() << "init" << endl;
     }
     this->studentManageItemPt->studentBasicInfo->show();
 //    QMessageBox::information(this, "Warning","Username or Password is wrong !");
+}
+
+/**
+ * 打开在籍处理页面
+ */
+void MainWindow::on_action_menbership_process_triggered()
+{
+
 }

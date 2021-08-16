@@ -29,6 +29,8 @@ public slots:
 private slots:
     void on_action_student_info_process_triggered();
 
+    void on_action_menbership_process_triggered();
+
 private:
     Ui::MainWindow *ui;
     LoginWidget *loginWidget;

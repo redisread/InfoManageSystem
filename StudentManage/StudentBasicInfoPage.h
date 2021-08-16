@@ -5,18 +5,20 @@
 #include <QHash>
 #include <QSqlQuery>
 #include <QComboBox>
+#include <QMenu>
+#include <QMessageBox>
 
 namespace Ui {
 class StudentBasicInfo;
 }
 
-class StudentBasicInfo : public QWidget
+class StudentBasicInfoPage : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit StudentBasicInfo(QWidget *parent = nullptr);
-    ~StudentBasicInfo();
+    explicit StudentBasicInfoPage(QWidget *parent = nullptr);
+    ~StudentBasicInfoPage();
     void initSearchInfo();
     void generateData();
     void generateTableView();
@@ -27,10 +29,14 @@ private:
     void setOneData(QSqlQuery& query,QList<QString>& tList,const QString& name,const QString& tableQuery);
     void fillOneData(QComboBox* combobox,QList<QString>& tList);
 
+private slots:
+     //右键菜单响应函数
+    void slotContextMenu(QPoint pos);
+    void rightClickPage();
 private:
     Ui::StudentBasicInfo *ui;
     QHash<QString,QString> searchInfo;
-
+    QMenu *popMenu; //菜单
     QList<QString> campusList;
     QList<QString> educationTypeList;
     QList<QString> teachPlaceList;

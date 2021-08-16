@@ -34,8 +34,8 @@ SOURCES += \
     DatabaseUtils/MysqlHelper.cpp \
     DatabaseUtils/SqliteHelper.cpp \
     Login/loginwidget.cpp \
-    StudentManage/StudentBasicInfo.cpp \
-    StudentManage/StudentManageItem.cpp
+    StudentManage/StudentManageItem.cpp \
+    StudentManage/StudentBasicInfoPage.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -47,8 +47,8 @@ HEADERS += \
     DatabaseUtils/MysqlHelper.h \
     DatabaseUtils/SqliteHelper.h \
     Login/loginwidget.h \
-    StudentManage/StudentBasicInfo.h \
-    StudentManage/StudentManageItem.h
+    StudentManage/StudentManageItem.h \
+    StudentManage/StudentBasicInfoPage.h
 
 FORMS += \
         mainwindow.ui \
