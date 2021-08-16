@@ -3,7 +3,6 @@
 #include "DatabaseUtils/MysqlHelper.h"
 #include <QStandardItemModel>
 #include <QSqlTableModel>
-#include <QSqlRelationalTableModel>
 #include <QMenu>
 
 StudentBasicInfoPage::StudentBasicInfoPage(QWidget *parent) :
@@ -13,7 +12,8 @@ StudentBasicInfoPage::StudentBasicInfoPage(QWidget *parent) :
     ui->setupUi(this);
     initSearchInfo();
     generateData();
-//    ui->tableView
+    updatePage = new StudentInfoUpdatePage();
+    //    ui->tableView
 }
 
 StudentBasicInfoPage::~StudentBasicInfoPage()
@@ -53,8 +53,8 @@ void StudentBasicInfoPage::generateData()
 
     generateTableView();
 
-//    mysqlHelper.closeDatabase();
-//    mysqlHelper.getDatabase().isOpen();
+    //    mysqlHelper.closeDatabase();
+    //    mysqlHelper.getDatabase().isOpen();
     //    mysqlHelperPt->openDatabase(DatabaseConfig::)
 }
 
@@ -62,12 +62,12 @@ void StudentBasicInfoPage::generateTableView()
 {
     ui->tableView->setSortingEnabled(true);
 
-//    QStandardItemModel* model = new QStandardItemModel();
-//    QStringList labels = QObject::trUtf8("频率,功率,误差,频率,功率,误差,频率,功率,误差,频率,功率,误差,频率,功率,误差,频率,功率,误差").simplified().split(",");
-//    model->setHorizontalHeaderLabels(labels);
-//    ui->tableView->setModel(model);
-//    ui->tableView->show();
-    QSqlRelationalTableModel *model;
+    //    QStandardItemModel* model = new QStandardItemModel();
+    //    QStringList labels = QObject::trUtf8("频率,功率,误差,频率,功率,误差,频率,功率,误差,频率,功率,误差,频率,功率,误差,频率,功率,误差").simplified().split(",");
+    //    model->setHorizontalHeaderLabels(labels);
+    //    ui->tableView->setModel(model);
+    //    ui->tableView->show();
+//    QSqlRelationalTableModel *model;
     model = new QSqlRelationalTableModel(this);
     //属性变化时写入数据库
     model->setEditStrategy(QSqlTableModel::OnFieldChange);
@@ -87,19 +87,19 @@ void StudentBasicInfoPage::generateTableView()
     model->setHeaderData(9, Qt::Horizontal, QObject::tr("工作单位"));
     model->setHeaderData(10, Qt::Horizontal, QObject::tr("电话号码"));
     model->setHeaderData(11, Qt::Horizontal, QObject::tr("学历形式"));
-//    model->setHeaderData(12, Qt::Horizontal, QObject::tr("学历形式"));
+    //    model->setHeaderData(12, Qt::Horizontal, QObject::tr("学历形式"));
 
 
     model->select();
     ui->tableView->setModel(model);
-//    QSqlTableModel* model = new QSqlTableModel(this);
+    //    QSqlTableModel* model = new QSqlTableModel(this);
 
-//    model->setTable("student");
-//    model->setEditStrategy(QSqlTableModel::OnManualSubmit);
-//    model->select(); //选取整个表的所有行
-//    //不显示name属性列,如果这时添加记录，则该属性的值添加不上
-//    // model->removeColumn(1);
-//    ui->tableView->setModel(model);
+    //    model->setTable("student");
+    //    model->setEditStrategy(QSqlTableModel::OnManualSubmit);
+    //    model->select(); //选取整个表的所有行
+    //    //不显示name属性列,如果这时添加记录，则该属性的值添加不上
+    //    // model->removeColumn(1);
+    //    ui->tableView->setModel(model);
     // 设置右键菜单
     ui->tableView->setContextMenuPolicy(Qt::CustomContextMenu);
 
@@ -114,7 +114,9 @@ void StudentBasicInfoPage::generateTableView()
     connect(actionUpdateInfo, SIGNAL(triggered()), this, SLOT(rightClickPage()));
     connect(ui->tableView, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu(QPoint)));
 
-
+    //设置tableview一次只能可选一行
+    ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);
 
 }
 
@@ -242,16 +244,23 @@ void StudentBasicInfoPage::fillOneData(QComboBox *combobox, QList<QString> &tLis
 void StudentBasicInfoPage::slotContextMenu(QPoint pos)
 {
     auto index = ui->tableView->indexAt(pos);
-     if (index.isValid())
-     {
-         popMenu->exec(QCursor::pos()); // 菜单出现的位置为当前鼠标的位置
-     }
+    if (index.isValid())
+    {
+        popMenu->exec(QCursor::pos()); // 菜单出现的位置为当前鼠标的位置
+    }
 }
 
 void StudentBasicInfoPage::rightClickPage()
 {
-    QMessageBox::information(this, "Warning","Username or Password is wrong !");
-
+    // 获取表格当前的行
+    QModelIndex index = ui->tableView->currentIndex();
+    // 查询当前行的信息
+    if (index.isValid())
+    {
+        QSqlRecord record = model->record(index.row());
+        QString value = record.value("name").toString();
+    }
+    this->updatePage->show();
 }
 
 

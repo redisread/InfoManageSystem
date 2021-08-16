@@ -35,7 +35,8 @@ SOURCES += \
     DatabaseUtils/SqliteHelper.cpp \
     Login/loginwidget.cpp \
     StudentManage/StudentManageItem.cpp \
-    StudentManage/StudentBasicInfoPage.cpp
+    StudentManage/StudentBasicInfoPage.cpp \
+    StudentManage/StudentInfoUpdatePage.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -48,12 +49,14 @@ HEADERS += \
     DatabaseUtils/SqliteHelper.h \
     Login/loginwidget.h \
     StudentManage/StudentManageItem.h \
-    StudentManage/StudentBasicInfoPage.h
+    StudentManage/StudentBasicInfoPage.h \
+    StudentManage/StudentInfoUpdatePage.h
 
 FORMS += \
         mainwindow.ui \
     Login/loginwidget.ui \
-    StudentManage/StudentBasicInfo.ui
+    StudentManage/StudentBasicInfo.ui \
+    StudentManage/StudentInfoUpdatePage.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
